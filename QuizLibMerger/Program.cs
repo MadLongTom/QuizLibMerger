@@ -8,13 +8,8 @@ using System.Text;
 
 Console.WriteLine("Hello, World!");
 
-File.WriteAllText($"C:\\Users\\MadTom\\Desktop\\宝贵资源\\GUI.py", Encrypt(File.ReadAllText($"C:\\Users\\MadTom\\Desktop\\宝贵资源\\GUIo.py"), "loveyou3", "tsdyears"));
-File.WriteAllText($"C:\\Users\\MadTom\\Desktop\\宝贵资源\\GUIA.py", Encrypt(File.ReadAllText($"C:\\Users\\MadTom\\Desktop\\宝贵资源\\GUIAo.py"), "loveyou3", "tsdyears"));
-
 Course[] c = new Course[]
 {
-    new Course{dstname = "C:\\Users\\MadTom\\Desktop\\宝贵资源\\source",examname = "C:\\Users\\MadTom\\Desktop\\宝贵资源\\exam",identifier = "GS2" },
-    //new Course{dstname = "C:\\Users\\MadTom\\Desktop\\宝贵资源\\source1",examname = "C:\\Users\\MadTom\\Desktop\\宝贵资源\\exam1",identifier = "GLL" },
 };
 
 foreach (Course course in c)
@@ -113,10 +108,6 @@ foreach (Course course in c)
     }
 
     root["rt"]["allQuestionList"] = new JArray((root["rt"]["allQuestionList"] as JArray).OrderBy(obj => (int)obj["id"]).DistinctBy(p => p["id"]));
-
-    File.WriteAllText($"C:\\Users\\MadTom\\Desktop\\宝贵资源\\rootunde{course.identifier}{DateTime.Now.ToFileTime()}.json", root.ToString());
-
-    File.WriteAllText($"C:\\Users\\MadTom\\Desktop\\宝贵资源\\root{course.identifier}{DateTime.Now.ToFileTime()}.json", Encrypt(root.ToString(), "loveyou3", "tsdyears"));
 
 }
 
